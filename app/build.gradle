@@ -17,6 +17,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_URL", "\"\"")
     }
 
     buildTypes {
@@ -52,8 +54,6 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
     implementation 'com.google.code.gson:gson:2.10.1'
-    implementation "tw.com.program.imagecrop:crop:0.1.5-SNAPSHOT"
-    implementation "tw.com.program.imagecrop:selector:0.1.2-SNAPSHOT"
     implementation 'io.insert-koin:koin-android:3.3.2'
 
     def kotlinCoroutinesVersion = "1.6.4"
@@ -73,6 +73,7 @@ dependencies {
     def retrofitVersion = '2.9.0'
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.10.0"
 
     def roomVersion = '2.5.1'
     implementation "androidx.room:room-runtime:$roomVersion"
