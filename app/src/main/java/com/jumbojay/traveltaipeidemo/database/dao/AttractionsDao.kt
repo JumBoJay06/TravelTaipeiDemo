@@ -10,7 +10,7 @@ interface AttractionsDao {
     val attractionsLiveData: LiveData<List<Attractions>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveAttractions(bikes: List<Attractions>)
+    fun saveAttractions(attractionsList: List<Attractions>)
 
     @Query("DELETE FROM attractions")
     fun deleteAll()
