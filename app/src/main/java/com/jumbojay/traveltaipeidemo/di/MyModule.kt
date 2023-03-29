@@ -4,6 +4,8 @@ import com.jumbojay.traveltaipeidemo.api.buildWithApi
 import com.jumbojay.traveltaipeidemo.api.services.AttractionsService
 import com.jumbojay.traveltaipeidemo.database.MyRoomDatabase
 import com.jumbojay.traveltaipeidemo.repository.AttractionsRepository
+import com.jumbojay.traveltaipeidemo.ui.AttractionViewModel
+import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -21,6 +23,10 @@ val repositoryModule = module {
     single { AttractionsRepository(get(), get()) }
 }
 
+val viewModelModule = module {
+    single { AttractionViewModel(get(), androidApplication()) }
+}
+
 inline fun <reified T> getWebService(
     readTimeout: Long,
 ): T = Retrofit.Builder()
@@ -30,4 +36,5 @@ val MyModules = listOf(
     apiModule,
     databaseModule,
     repositoryModule,
+    viewModelModule,
 )
