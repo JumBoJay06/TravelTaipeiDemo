@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary_light">#3B95DA</color>
+    <color name="colorPrimary">#FF007cdb</color>
+    <color name="colorPrimaryDark">#00579A</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorControlNormal">@color/colorPrimary</color>
+    <color name="textColorSecondary">#A5A5A5</color>
+
+    <color name="colorMainDivider">@color/colorPrimary</color>
+</resources>

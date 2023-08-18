@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.jumbojay.traveltaipeidemo.ui.AttractionViewModel" />
+    </data>
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tool_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/tool_bar"
+                    style="@style/ToolBarWithNavigationBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:title="@{viewModel.selectAttractions.name}"
+                    app:titleTextAppearance="@style/MyTitleTextAppearance" />
+
+                <View
+                    android:id="@+id/title_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorMainDivider"
+                    app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/photos_pager"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layout_constraintTop_toBottomOf="@+id/app_bar">
+        </androidx.viewpager2.widget.ViewPager2>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/dot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:tabBackground="@drawable/tab_selector"
+            app:layout_constraintBottom_toBottomOf="@+id/photos_pager"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/photos_pager"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textStyle="bold"
+                    android:textSize="36sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:text="asdasd"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/introduction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/name"
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    app:layout_constraintRight_toRightOf="@+id/name"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/name"
+                    app:layout_constraintRight_toRightOf="@+id/name"
+                    app:layout_constraintTop_toBottomOf="@+id/introduction"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/modified"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintRight_toRightOf="@+id/name"
+                    app:layout_constraintLeft_toLeftOf="@+id/name"
+                    app:layout_constraintTop_toBottomOf="@+id/address"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/official_site"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:autoLink="web"
+                    app:layout_constraintRight_toRightOf="@+id/name"
+                    app:layout_constraintLeft_toLeftOf="@+id/name"
+                    app:layout_constraintTop_toBottomOf="@+id/modified"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="http://1www.majisquare.com/"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
